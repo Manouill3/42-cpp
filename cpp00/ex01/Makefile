@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/09/01 12:54:14 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/03 08:53:58 by mdegache         ###   ########.fr        #
+#    Created: 2025/09/03 08:46:33 by mdegache          #+#    #+#              #
+#    Updated: 2025/09/03 14:10:02 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,27 +15,29 @@ GREEN=\033[32m
 PURPLE=\033[35m
 RESET=\033[0m
 
-NAME = ex00
+NAME = ex01
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = megaphone.cpp
+SRC = main.cpp Contact.cpp Phonebook.cpp
 
-all: $(NAME)
+OBJ = $(SRC:%.cpp=%.o)
 
-$(NAME): 
+all : $(NAME)
+
+$(NAME) : $(SRC)
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
 
-clean:
+clean : 
 		@rm -f $(OBJ)
 		@echo "$(PURPLE)CLEAN$(RESET)"
 
-fclean: clean
-		@rm -f $(NAME)
+fclean : clean
+		@rm -rf $(NAME)
 		@echo "$(RED)FCLEAN$(RESET)"
 
-re: fclean all
+re : fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY : all clean fclean re NAME
