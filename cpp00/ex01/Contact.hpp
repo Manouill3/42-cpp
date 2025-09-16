@@ -6,10 +6,11 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 09:26:17 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/03 10:28:58 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/16 12:54:57 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
 #include <iostream>
 
 class Contact {
@@ -37,4 +38,8 @@ public :
     void set_nickname(std::string a);
     void set_number(std::string a);
     void set_secret(std::string a);
+
+    void    new_contact(void);
 };
+
+std::string get_input(std::string msg);
