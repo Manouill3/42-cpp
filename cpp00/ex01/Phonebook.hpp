@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 10:53:56 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/16 12:54:50 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:50:44 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ public :
     ~Phonebook();
 
     void    add_contact(void);
-    // void    Phonebook::SEARCH();
+    void    search_contact(void);
 };
+
+void    print_all(Contact contact);
+void    print_header(void);

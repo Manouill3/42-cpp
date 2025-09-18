@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 09:47:40 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/16 12:57:33 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:02:58 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@ int main() {
     
     while (1) {
         std::cout << "input > ";
-        std::cin >> entry;
+        if (!std::getline(std::cin, entry))
+            break;
         if (entry == "EXIT")
             return(0);
-        if (entry == "ADD"){
+        if (entry == "ADD")
             phone.add_contact();
-        }
-        // if (entry == "SEARCH"){
-        //     Phonebook.SEARCH();
-        // }    
+        if (entry == "SEARCH")
+            phone.search_contact();
     }
 }

@@ -6,12 +6,14 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 09:26:17 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/16 12:54:57 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:42:46 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include <cstdlib>
 
 class Contact {
     
@@ -40,6 +42,8 @@ public :
     void set_secret(std::string a);
 
     void    new_contact(void);
+    void    print_contact(int i);
 };
 
+std::string    print_name(std::string str);
 std::string get_input(std::string msg);

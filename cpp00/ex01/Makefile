@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/03 08:46:33 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/03 14:10:02 by mdegache         ###   ########.fr        #
+#    Updated: 2025/09/18 15:03:58 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ GREEN=\033[32m
 PURPLE=\033[35m
 RESET=\033[0m
 
-NAME = ex01
+NAME = phonebook
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98

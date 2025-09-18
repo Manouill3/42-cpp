@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 09:26:30 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/16 12:58:45 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:05:33 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,35 @@ void    Contact::new_contact(void) {
     set_secret(get_input("Darkest secret : "));
 }
 
+void    Contact::print_contact(int i) {
+    std::cout << "|";
+    std::cout << std::left << std::setw(10) << i;
+    std::cout << "|";
+    std::cout << std::left << std::setw(10) << print_name(get_first_name());
+    std::cout << "|";
+    std::cout << std::left << std::setw(10) << print_name(get_last_name());
+    std::cout << "|";
+    std::cout << std::left << std::setw(10) << print_name(get_nickname());
+    std::cout << "|" << std::endl;
+}
+
+std::string    print_name(std::string str) {
+    std::string output;
+    
+    if (str.length() > 10) {
+        str = str.substr(0, 9);
+        str += '.';
+    }
+    return (str);
+}
+
 std::string get_input(std::string msg) {
     std::string input;
     
     while (1) {
         std::cout << msg;
-        std::cin >> input;
+        if (!std::getline(std::cin, input))
+            exit(1);
         if (!input.empty())
             break;
     }
