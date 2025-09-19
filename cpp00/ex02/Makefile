@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 16:08:19 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/18 16:11:44 by mdegache         ###   ########.fr        #
+#    Updated: 2025/09/19 09:18:51 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = new_job
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = 
+SRC = Account.cpp tests.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
