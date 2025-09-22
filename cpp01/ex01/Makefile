@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/22 14:54:53 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/22 14:55:45 by mdegache         ###   ########.fr        #
+#    Updated: 2025/09/22 16:33:20 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = Moar
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp 
+SRC = main.cpp Zombie.cpp zombieHorde.cpp
 
 all: $(NAME)
 
