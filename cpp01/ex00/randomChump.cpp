@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 10:53:56 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/19 08:34:07 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/22 14:38:14 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/22 14:49:24 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
-class Phonebook {
-
-private :
-    
-    Contact book[8];
-    int oldest;
-
-public :
-    
-    Phonebook();
-    ~Phonebook();
-
-    void    set_oldest(int old);
-    int     get_oldest(void);
-    
-    void    add_contact(void);
-    void    search_contact(void);
-};
-
-void    print_all(Contact contact);
-void    print_header(void);
+void randomChump(std::string name) {
+    Zombie  new_zombie = Zombie(name);
+    new_zombie.announce();
+}

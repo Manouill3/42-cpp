@@ -5,27 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 09:47:40 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/19 08:35:15 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/22 13:21:33 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/22 14:50:39 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "Zombie.hpp"
 
-int main() {
-    std::string entry;
-    Phonebook phone;
-    
-    phone.set_oldest(0);
-    while (1) {
-        std::cout << "input > ";
-        if (!std::getline(std::cin, entry))
-            break;
-        if (entry == "EXIT")
-            return(0);
-        if (entry == "ADD")
-            phone.add_contact();
-        if (entry == "SEARCH")
-            phone.search_contact();
-    }
+int main(void) {
+    Zombie *one = newZombie("one");
+    one->announce();
+    delete one;
+    randomChump("two");
 }

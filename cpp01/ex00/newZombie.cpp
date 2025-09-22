@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 10:53:56 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/19 08:34:07 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/22 14:07:08 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/22 14:29:43 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
-class Phonebook {
-
-private :
-    
-    Contact book[8];
-    int oldest;
-
-public :
-    
-    Phonebook();
-    ~Phonebook();
-
-    void    set_oldest(int old);
-    int     get_oldest(void);
-    
-    void    add_contact(void);
-    void    search_contact(void);
-};
-
-void    print_all(Contact contact);
-void    print_header(void);
+Zombie* newZombie(std::string name) {
+    Zombie  *new_zombie = new Zombie(name);
+    return new_zombie;
+}

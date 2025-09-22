@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 09:26:30 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/18 16:05:33 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/19 09:31:57 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void Contact::set_number(std::string a) {number = a;}
 void Contact::set_secret(std::string a) {secret = a;}
 
 void    Contact::new_contact(void) {
-    set_first_name(get_input("First name : "));
-    set_last_name(get_input("Last name : "));
-    set_nickname(get_input("Nickname : "));
-    set_number(get_input("Phone number : "));
-    set_secret(get_input("Darkest secret : "));
+    first_name = get_input("First name : ");
+    last_name = get_input("Last name : ");
+    nickname = get_input("Nickname : ");
+    number = get_input("Phone number : ");
+    secret = get_input("Darkest secret : ");
 }
 
 void    Contact::print_contact(int i) {

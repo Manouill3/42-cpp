@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 10:53:56 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/19 08:34:07 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/22 13:28:26 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/22 13:59:37 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
-class Phonebook {
+Zombie::Zombie(std::string name) {
+    this->name = name;
+    std::cout << "A new zombie named " << name << " has been created" << std::endl;
+}
 
-private :
-    
-    Contact book[8];
-    int oldest;
+Zombie::~Zombie(void) {
+    std::cout << "The zombie " << name << " has been destructed" << std::endl;
+}
 
-public :
-    
-    Phonebook();
-    ~Phonebook();
-
-    void    set_oldest(int old);
-    int     get_oldest(void);
-    
-    void    add_contact(void);
-    void    search_contact(void);
-};
-
-void    print_all(Contact contact);
-void    print_header(void);
+void    Zombie::announce(void) {
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}

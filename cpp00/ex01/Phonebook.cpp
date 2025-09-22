@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 10:54:30 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/18 16:05:30 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/19 09:30:51 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,25 @@
 Phonebook::Phonebook(void){}
 Phonebook::~Phonebook(void){}
 
+void    Phonebook::set_oldest(int old) {oldest = old;}
+int Phonebook::get_oldest(void) {return oldest;}
+
 void    Phonebook::add_contact(void) {
     std::string tmp;
     Contact new_contact;
 
     new_contact.new_contact();
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 8; i++) {
         tmp = book[i].get_first_name();
         if (tmp.empty()) {
             book[i] = new_contact;
-            break;
+            return;
         }
-        if (i == 8)
-            book[0] = new_contact;
     }
+    book[oldest] = new_contact;
+    oldest++;
+    if (oldest == 8)
+        oldest = 0;
 }
 
 void    Phonebook::search_contact(void) {
@@ -43,6 +48,10 @@ void    Phonebook::search_contact(void) {
     std::cout << "Select a contact > ";
     if (!std::getline(std::cin, index))
             exit(1);
+    if (book[0].get_first_name().empty()){
+        std::cout << "No contact" << std::endl;
+        return ;
+    }
     print_all(book[atoi(index.c_str())]);
 }
 
