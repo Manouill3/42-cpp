@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 13:28:26 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/23 09:36:27 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/23 10:01:45 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/23 11:09:48 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-Zombie::Zombie(void) {}
-
-Zombie::Zombie(std::string name) {
+HumanB::HumanB(std::string name) {
     this->name = name;
-    std::cout << "A new zombie named " << name << " has been created" << std::endl;
+    weapon = NULL;
 }
 
-Zombie::~Zombie(void) {
-    std::cout << "The zombie " << name << " has been destructed" << std::endl;
+HumanB::~HumanB(void) {}
+
+void HumanB::attack(void) {
+    if (weapon == NULL)
+        std::cout << name << " attack with their fists" << std::endl;
+    else
+        std::cout << name << " attack with their " << weapon->getType() << std::endl;
 }
 
-void Zombie::set_name(std::string name) {
-    this->name = name;
-}
-
-void    Zombie::announce(void) {
-    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+void HumanB::setWeapon(Weapon &weapon) {
+    this->weapon = &weapon;
 }

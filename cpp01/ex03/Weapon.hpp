@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 13:21:33 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/23 09:42:10 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/23 10:01:16 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/23 10:51:38 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-int main(void) {
-    Zombie *horde = zombieHorde(5, "balalalal");
-    for (int i = 0; i < 5; i++) {
-        horde[i].announce();
-    }
-    delete[] horde;
-}
+class Weapon {
+    
+private :
+
+    std::string type;
+
+public :
+
+    Weapon(void);
+    Weapon(std::string type);
+    ~Weapon(void);
+
+    std::string getType(void);
+    void setType(std::string type);
+};

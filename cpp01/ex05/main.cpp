@@ -5,17 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 13:21:33 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/23 09:42:10 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/23 14:09:27 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/23 14:09:28 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-int main(void) {
-    Zombie *horde = zombieHorde(5, "balalalal");
-    for (int i = 0; i < 5; i++) {
-        horde[i].announce();
-    }
-    delete[] horde;
-}

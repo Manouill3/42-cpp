@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 13:21:33 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/23 09:42:10 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/23 10:01:56 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/23 11:07:36 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-int main(void) {
-    Zombie *horde = zombieHorde(5, "balalalal");
-    for (int i = 0; i < 5; i++) {
-        horde[i].announce();
-    }
-    delete[] horde;
-}
+class HumanB {
+    
+private :
+
+    std::string name;
+    Weapon *weapon;
+    
+public :
+
+    HumanB(std::string name);
+    ~HumanB(void);
+
+    void attack(void);
+    void setWeapon(Weapon &weapon);
+};
