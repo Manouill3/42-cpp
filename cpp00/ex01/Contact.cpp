@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 09:26:30 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/25 14:07:51 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/29 13:45:59 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void    Contact::new_contact(void) {
 
 void    Contact::print_contact(int i) {
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << i;
+    std::cout << std::right << std::setw(10) << i;
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << print_name(get_first_name());
+    std::cout << std::right << std::setw(10) << print_name(get_first_name());
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << print_name(get_last_name());
+    std::cout << std::right << std::setw(10) << print_name(get_last_name());
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << print_name(get_nickname());
+    std::cout << std::right << std::setw(10) << print_name(get_nickname());
     std::cout << "|" << std::endl;
 }
 

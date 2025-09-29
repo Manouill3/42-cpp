@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 10:54:30 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/29 11:09:32 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/29 14:37:10 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,9 @@ bool    Phonebook::search_contact(void) {
         return true;
     }
     size = get_booksize(book);
-    if ((size >= 0 && size <= atoi(index.c_str())) || atoi(index.c_str()) < 0 || (size < 0 && atoi(index.c_str()) > 7))
+    if (look_for_char(index))
+        std::cout << "No contact" << std::endl;
+    else if ((size >= 0 && size <= atoi(index.c_str())) || atoi(index.c_str()) < 0 || (size < 0 && atoi(index.c_str()) > 7))
         std::cout << "No contact" << std::endl;
     else
         print_all(book[atoi(index.c_str())]);
@@ -81,12 +83,20 @@ void    print_all(Contact contact) {
 
 void    print_header(void) {
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << "Index";
+    std::cout << std::right << std::setw(10) << "Index";
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << "First_name";
+    std::cout << std::right << std::setw(10) << "First_name";
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << "Last_name";
+    std::cout << std::right << std::setw(10) << "Last_name";
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << "Nickname";
+    std::cout << std::right << std::setw(10) << "Nickname";
     std::cout << "|" << std::endl;
+}
+
+int look_for_char(std::string index) {
+    for(size_t i = 0; i < index.length(); i++) {
+        if (isalpha(index[i]))
+            return 1;
+    }
+    return 0;
 }

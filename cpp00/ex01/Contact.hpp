@@ -6,9 +6,12 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 09:26:17 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/18 15:42:46 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/29 13:54:05 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 #include <string>
 #include <iostream>
@@ -47,3 +50,5 @@ public :
 
 std::string    print_name(std::string str);
 std::string get_input(std::string msg);
+
+#endif //

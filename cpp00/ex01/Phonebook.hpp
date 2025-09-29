@@ -6,9 +6,12 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 10:53:56 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/25 14:57:20 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/29 14:36:48 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include "Contact.hpp"
 
@@ -34,3 +37,6 @@ public :
 
 void    print_all(Contact contact);
 void    print_header(void);
+int look_for_char(std::string index);
+
+#endif //CONTACT_HPP
