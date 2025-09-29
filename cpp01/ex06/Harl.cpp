@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/23 14:09:34 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/25 13:16:12 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/25 13:22:14 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/25 13:50:44 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,26 @@ void Harl::error(void) {
 }
 
 void Harl::complain(std::string level) {
+    int index;
+    
+    index = 4;
     std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    void (Harl::*ptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
     for(int i = 0; i < 4; i++) {
-        if(levels[i] == level)
-            (this->*ptr[i])();
+        if (levels[i] == level)
+            index = i;
+    }
+    
+    switch (index) {
+        case 0:
+            debug();
+        case 1:
+            info();
+        case 2:
+            warning();
+        case 3:
+            error();
+            break;
+        default :
+            std::cout << "Probably an insignifiant problem" << std::endl;
     }
 }

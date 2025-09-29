@@ -21,11 +21,15 @@ int main() {
         std::cout << "input > ";
         if (!std::getline(std::cin, entry))
             break;
-        if (entry == "EXIT")
+        else if (entry == "EXIT")
             return(0);
-        if (entry == "ADD")
+        else if (entry == "ADD")
             phone.add_contact();
-        if (entry == "SEARCH")
-            phone.search_contact();
+        else if (entry == "SEARCH") {
+            if (!phone.search_contact())
+                break;
+        }
+        else
+            std::cout << "try : ADD, SEARCH or EXIT" << std::endl;
     }
 }

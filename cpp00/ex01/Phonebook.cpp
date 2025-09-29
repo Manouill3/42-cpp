@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 10:54:30 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/19 09:30:51 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/09/29 11:09:32 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,27 @@ Phonebook::~Phonebook(void){}
 void    Phonebook::set_oldest(int old) {oldest = old;}
 int Phonebook::get_oldest(void) {return oldest;}
 
-void    Phonebook::add_contact(void) {
+int Phonebook::get_booksize(Contact book[]) {
     std::string tmp;
-    Contact new_contact;
-
-    new_contact.new_contact();
+    
     for (int i = 0; i < 8; i++) {
         tmp = book[i].get_first_name();
         if (tmp.empty()) {
-            book[i] = new_contact;
-            return;
+            return (i);
         }
+    }
+    return -1;
+}
+
+void    Phonebook::add_contact(void) {
+    int i;
+    Contact new_contact;
+
+    new_contact.new_contact();
+    i = get_booksize(book);
+    if (i != -1) {
+        book[i] = new_contact;
+        return ;
     }
     book[oldest] = new_contact;
     oldest++;
@@ -36,7 +46,8 @@ void    Phonebook::add_contact(void) {
         oldest = 0;
 }
 
-void    Phonebook::search_contact(void) {
+bool    Phonebook::search_contact(void) {
+    int size;
     std::string index;
     
     print_header();
@@ -47,12 +58,17 @@ void    Phonebook::search_contact(void) {
     }
     std::cout << "Select a contact > ";
     if (!std::getline(std::cin, index))
-            exit(1);
+            return false;
     if (book[0].get_first_name().empty()){
         std::cout << "No contact" << std::endl;
-        return ;
+        return true;
     }
-    print_all(book[atoi(index.c_str())]);
+    size = get_booksize(book);
+    if ((size >= 0 && size <= atoi(index.c_str())) || atoi(index.c_str()) < 0 || (size < 0 && atoi(index.c_str()) > 7))
+        std::cout << "No contact" << std::endl;
+    else
+        print_all(book[atoi(index.c_str())]);
+    return true;
 }
 
 void    print_all(Contact contact) {

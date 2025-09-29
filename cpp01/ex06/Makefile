@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/09/03 08:46:33 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/25 15:01:12 by mdegache         ###   ########.fr        #
+#    Created: 2025/09/25 13:21:35 by mdegache          #+#    #+#              #
+#    Updated: 2025/09/25 13:48:57 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,29 +15,27 @@ GREEN=\033[32m
 PURPLE=\033[35m
 RESET=\033[0m
 
-NAME = phonebook
+NAME = Harlfilter
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp Contact.cpp Phonebook.cpp
+SRC = main.cpp Harl.cpp
 
-OBJ = $(SRC:%.cpp=%.o)
+all: $(NAME)
 
-all : $(NAME)
-
-$(NAME) : $(SRC)
+$(NAME): 
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
 
-clean : 
+clean:
 		@rm -f $(OBJ)
 		@echo "$(PURPLE)CLEAN$(RESET)"
 
-fclean : clean
-		@rm -rf $(NAME)
+fclean: clean
+		@rm -f $(NAME)
 		@echo "$(RED)FCLEAN$(RESET)"
 
-re : fclean all
+re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re $(NAME)

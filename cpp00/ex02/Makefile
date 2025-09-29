@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 16:08:19 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/19 09:18:51 by mdegache         ###   ########.fr        #
+#    Updated: 2025/09/25 15:01:17 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,4 +40,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re NAME
+.PHONY : all clean fclean re

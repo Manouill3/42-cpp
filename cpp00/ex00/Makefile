@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 12:54:14 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/18 15:04:11 by mdegache         ###   ########.fr        #
+#    Updated: 2025/09/25 15:03:05 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,4 +38,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY : all clean fclean re

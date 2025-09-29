@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 10:53:56 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/25 14:57:20 by mdegache         ###   ########.fr       */
+/*   Created: 2025/09/25 13:44:55 by mdegache          #+#    #+#             */
+/*   Updated: 2025/09/25 13:48:30 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Harl.hpp"
 
-class Phonebook {
-
-private :
+int main(int ac, char **av) {
+    if (ac != 2) {
+        std::cout << "Wrong format : {level}" << std::endl;
+        return 1;
+    }
     
-    Contact book[8];
-    int oldest;
-
-public :
+    Harl harl;
     
-    Phonebook();
-    ~Phonebook();
-
-    void    set_oldest(int old);
-    int     get_oldest(void);
-    
-    void    add_contact(void);
-    bool    search_contact(void);
-    int get_booksize(Contact book[]);
-};
-
-void    print_all(Contact contact);
-void    print_header(void);
+    harl.complain(std::string(av[1]));
+}
