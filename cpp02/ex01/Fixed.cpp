@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:25:36 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/30 15:56:08 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/01 10:37:21 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void Fixed::setRawBits(int const raw) {
 }
 
 Fixed::Fixed(const int val) {
-    raw = val;
+    raw = val * (1 << bits);
     std::cout << "Integer constructor called" << std::endl;
 }
 
@@ -54,11 +54,16 @@ Fixed::Fixed(const float val) {
 }
 
 float Fixed::toFloat(void) const {
-    return (raw * (1 << bits));
+    return (float)raw / (1 << bits);
     std::cout << "toFloat member function called" << std::endl;
 }
 
 int Fixed::toInt(void) const {
-    return (raw * (1 << bits));
+    return raw / (1 << bits);
     std::cout << "toInt member function called" << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &output, const Fixed &fixe) {
+    output << fixe.toFloat();
+    return output;
 }
