@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/30 14:30:30 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/30 14:30:40 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/06 14:54:39 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = canon
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
