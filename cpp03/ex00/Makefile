@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/07 18:45:24 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/07 18:46:33 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/07 20:33:13 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,12 @@ GREEN=\033[32m
 PURPLE=\033[35m
 RESET=\033[0m
 
-NAME = HI_THIS_IS_BRAIN
+NAME = ClapTrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp ClapTrap.cpp
 
 all: $(NAME)
 
