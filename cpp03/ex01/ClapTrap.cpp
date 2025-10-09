@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 18:52:00 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/08 11:22:39 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/08 11:22:39 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/08 12:49:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap(std::string name) {
     hit_pts = 10;
     energy_pts = 10;
     atk_damage = 0;
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj) {
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(const ClapTrap &obj) {
     hit_pts = obj.hit_pts;
     energy_pts = obj.energy_pts;
     atk_damage = obj.atk_damage;
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap copy constructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
@@ -35,7 +35,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
         energy_pts = obj.energy_pts;
         atk_damage = obj.atk_damage;
     }
-    std::cout << "Copy assignement called" << std::endl;
+    std::cout << "ClapTrap copy assignement called" << std::endl;
     return *this;
 }
 
