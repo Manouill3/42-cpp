@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/10 09:56:09 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/10 14:52:01 by mdegache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Dog.hpp"
+
+Dog::Dog() {
+    type = "Dog";
+    std::cout << "Dog default constructor called" << std::endl;
+}
+
+Dog::Dog(const Dog &obj) {
+    type = obj.type;
+    std::cout << "Dog copy constructor called" << std::endl;
+}
+
+Dog &Dog::operator=(const Dog &obj) {
+    if (this != &obj)
+        type = obj.type;
+    std::cout << "Dog copy assignement called" << std::endl;
+    return *this;
+}
+
+Dog::~Dog() {
+    std::cout << "Dog destructor called" << std::endl;
+}
+
+void Dog::makeSound() const {
+    std::cout << "Bark Bark !" << std::endl;
+}

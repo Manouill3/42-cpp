@@ -15,17 +15,22 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 
 public :
 
+    ScavTrap();
     ScavTrap(std::string name);
     ScavTrap(const ScavTrap &obj);
     ScavTrap &operator=(const ScavTrap &obj);
     ~ScavTrap();
-
+    
     void attack(const std::string &target);
     void guardGate();
+
+protected:
+    
+    static const int def_energy_pts = 10;
 };
 
 #endif

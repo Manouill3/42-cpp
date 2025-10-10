@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 18:49:08 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/09 14:38:26 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/10 09:45:39 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/10 14:56:10 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-int main() {
-    ClapTrap one("one");
-    ClapTrap two("two");
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-    std::cout << std::endl;
-    one.attack("two");
-    two.takeDamage(10);
-    two.beRepaired(10);
-    one.takeDamage(9);
-    one.beRepaired(10);
-    std::cout << std::endl;
-}
+class Cat : public Animal {
+
+private :
+
+    Brain *brain;    
+
+public :
+
+    Cat();
+    Cat(const Cat &obj);
+    Cat &operator=(const Cat &obj);
+    ~Cat();
+
+    void makeSound() const;
+};
+
+#endif

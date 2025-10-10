@@ -14,9 +14,9 @@
 
 ScavTrap::ScavTrap(std::string name) {
     this->name = name;
-    hit_pts = 100;
-    energy_pts = 50;
-    atk_damage = 20;
+    hit_pts = 10;
+    energy_pts = 10;
+    atk_damage = 0;
     std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
@@ -42,14 +42,6 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &obj) {
 ScavTrap::~ScavTrap() {std::cout << "ScavTrap destructor called" << std::endl;}
 
 void ScavTrap::attack(const std::string &target) {
-    if (hit_pts <= 0) {
-        std::cout << name << " is dead !" << std::endl;
-        return ;
-    }
-    if (energy_pts <= 0) {
-        std::cout << name << " is exhausted !" << std::endl;
-        return ;
-    }
     std::cout << "ScavTrap " << name;
     std::cout << " attacks " << target;
     std::cout << ", causing " << this->atk_damage;

@@ -5,33 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 18:49:08 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/09 14:55:06 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/10 10:06:51 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/10 14:59:18 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main() {
-    ClapTrap one("one");
-    ClapTrap two("two");
-    std::cout << std::endl;
-    ScavTrap three("three");
-    ScavTrap four("four");
+    const Animal* meta = new Animal();
+    const Animal* i = new Cat();
+    const Animal* j = new Dog();
+    const WrongAnimal* k = new WrongCat();
+    
+    std::cout << i->getType() << " " << std::endl;
+    std::cout << j->getType() << " " << std::endl;
+    meta->makeSound();
+    i->makeSound();
+    j->makeSound();
+    k->makeSound();
 
-    std::cout << std::endl;
-    one.attack("two");
-    two.takeDamage(10);
-    two.beRepaired(10);
-    one.takeDamage(9);
-    one.beRepaired(10);
-    std::cout << std::endl;
-
-    three.attack("four");
-    four.takeDamage(10);
-    four.beRepaired(10);
-    three.takeDamage(9);
-    three.beRepaired(10);
-    three.guardGate();
-    std::cout << std::endl;
+    delete meta;
+    delete i;
+    delete j;
+    delete k;
+    
+    return 0;
 }

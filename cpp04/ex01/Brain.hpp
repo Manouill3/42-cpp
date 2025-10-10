@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 18:52:23 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/09 09:32:45 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/10 11:20:07 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/10 11:27:30 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <iostream>
 
-class ClapTrap {
-  
-protected :
-
-    std::string name;
-    int hit_pts;
-    int energy_pts;
-    int atk_damage;
+class Brain {
     
+private :
+
+    std::string ideas[100];
+
 public :
 
-    ClapTrap();
-    ClapTrap(std::string name);
-    ClapTrap(const ClapTrap &obj);
-    ClapTrap &operator=(const ClapTrap &obj);
-    ~ClapTrap();
-
-    void attack(const std::string &target);
-    void takeDamage(unsigned int ammount);
-    void beRepaired(unsigned int amount);
+    Brain();
+    Brain(const Brain &obj);
+    Brain &operator=(const Brain &obj);
+    ~Brain();
 };
 
 #endif

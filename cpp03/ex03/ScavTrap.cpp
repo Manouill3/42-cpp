@@ -12,11 +12,19 @@
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap() {
+    name = "";
+    hit_pts = 10;
+    energy_pts = 10;
+    atk_damage = 0;
+    std::cout << "ScavTrap default constructor called" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name) {
     this->name = name;
-    hit_pts = 100;
-    energy_pts = 50;
-    atk_damage = 20;
+    hit_pts = 10;
+    energy_pts = 10;
+    atk_damage = 0;
     std::cout << "ScavTrap default constructor called" << std::endl;
 }
 

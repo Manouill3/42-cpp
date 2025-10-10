@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 18:49:08 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/09 14:38:26 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/10 10:27:54 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/10 10:28:49 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-int main() {
-    ClapTrap one("one");
-    ClapTrap two("two");
+#include "WrongAnimal.hpp"
 
-    std::cout << std::endl;
-    one.attack("two");
-    two.takeDamage(10);
-    two.beRepaired(10);
-    one.takeDamage(9);
-    one.beRepaired(10);
-    std::cout << std::endl;
-}
+class WrongCat : public WrongAnimal {
+
+public :
+
+    WrongCat();
+    WrongCat(const WrongCat &obj);
+    WrongCat &operator=(const WrongCat &obj);
+    ~WrongCat();
+
+    void makeSound() const;
+};
+
+#endif

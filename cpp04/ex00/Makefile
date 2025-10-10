@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/07 18:45:24 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/09 14:33:13 by mdegache         ###   ########.fr        #
+#    Created: 2025/10/10 09:29:58 by mdegache          #+#    #+#              #
+#    Updated: 2025/10/10 10:36:10 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,12 @@ GREEN=\033[32m
 PURPLE=\033[35m
 RESET=\033[0m
 
-NAME = ScavTrap
+NAME = polymorphism
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 all: $(NAME)
 
@@ -38,4 +38,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY : all clean fclean re

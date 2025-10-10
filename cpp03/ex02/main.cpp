@@ -6,11 +6,12 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:49:08 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/09 14:55:06 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/09 14:54:57 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
     ClapTrap one("one");
@@ -18,6 +19,9 @@ int main() {
     std::cout << std::endl;
     ScavTrap three("three");
     ScavTrap four("four");
+    std::cout << std::endl;
+    FragTrap five("five");
+    FragTrap six("six");
 
     std::cout << std::endl;
     one.attack("two");
@@ -33,5 +37,13 @@ int main() {
     three.takeDamage(9);
     three.beRepaired(10);
     three.guardGate();
+    std::cout << std::endl;
+
+    five.attack("six");
+    six.takeDamage(10);
+    six.beRepaired(10);
+    five.takeDamage(9);
+    five.beRepaired(10);
+    five.highFivesGuys();
     std::cout << std::endl;
 }
