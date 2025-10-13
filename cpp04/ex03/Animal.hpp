@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 10:06:51 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/13 11:48:22 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/10 09:31:40 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/13 12:03:12 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-int main() {
-    Animal *animals[20];
+#include <iostream>
 
-    for (int i = 0; i < 10; i++)
-        animals[i] = new Dog();
-    for (int i = 10; i < 20; i++)
-        animals[i] = new Cat();
+class Animal {
     
-    for (int  i = 0; i < 20; i++)
-        std::cout << animals[i]->getType() << std::endl;
+protected :
+
+    std::string type;
+
+public :
+
+    Animal();
+    Animal(const Animal &obj);
+    Animal &operator=(const Animal &obj);
+    virtual ~Animal();
+
+    void setType(std::string type);
+    std::string getType() const;
     
-    for (int  i = 0; i < 20; i++)
-        delete animals[i];
-}
+    virtual void makeSound() const = 0;
+};
+
+
+#endif

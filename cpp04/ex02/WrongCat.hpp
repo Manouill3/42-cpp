@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 10:06:51 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/13 11:48:22 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/10 10:27:54 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/10 10:28:49 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-int main() {
-    Animal *animals[20];
+#include "WrongAnimal.hpp"
 
-    for (int i = 0; i < 10; i++)
-        animals[i] = new Dog();
-    for (int i = 10; i < 20; i++)
-        animals[i] = new Cat();
-    
-    for (int  i = 0; i < 20; i++)
-        std::cout << animals[i]->getType() << std::endl;
-    
-    for (int  i = 0; i < 20; i++)
-        delete animals[i];
-}
+class WrongCat : public WrongAnimal {
+
+public :
+
+    WrongCat();
+    WrongCat(const WrongCat &obj);
+    WrongCat &operator=(const WrongCat &obj);
+    ~WrongCat();
+
+    void makeSound() const;
+};
+
+#endif

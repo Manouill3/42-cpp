@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 10:06:51 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/13 11:48:22 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/10 09:45:39 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/10 14:56:10 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-int main() {
-    Animal *animals[20];
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-    for (int i = 0; i < 10; i++)
-        animals[i] = new Dog();
-    for (int i = 10; i < 20; i++)
-        animals[i] = new Cat();
-    
-    for (int  i = 0; i < 20; i++)
-        std::cout << animals[i]->getType() << std::endl;
-    
-    for (int  i = 0; i < 20; i++)
-        delete animals[i];
-}
+class Cat : public Animal {
+
+private :
+
+    Brain *brain;    
+
+public :
+
+    Cat();
+    Cat(const Cat &obj);
+    Cat &operator=(const Cat &obj);
+    ~Cat();
+
+    void makeSound() const;
+};
+
+#endif
