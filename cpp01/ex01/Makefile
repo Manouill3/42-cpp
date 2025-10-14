@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/22 14:54:53 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/22 16:33:20 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/14 21:51:36 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,16 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC = main.cpp Zombie.cpp zombieHorde.cpp
 
-all: $(NAME)
+OBJ = $(SRC:%.cpp=%.o)
+
+all: $(OBJ)
 
 $(NAME): 
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
+
+%.o: %.cpp
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		@rm -f $(OBJ)
@@ -38,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY : all clean fclean re
