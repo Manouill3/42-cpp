@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 10:01:16 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/23 10:51:38 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/14 15:12:31 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ public :
     Weapon(std::string type);
     ~Weapon(void);
 
-    std::string getType(void);
+    std::string getType(void) const;
     void setType(std::string type);
 };

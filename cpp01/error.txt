@@ -1,0 +1,7 @@
+makefile de merde
+
+ex01 : secu a rajouter 
+
+ex04 : secu a rajouter
+
+ex06 : chamgez le nom de l'executable
