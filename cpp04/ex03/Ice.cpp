@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 09:31:40 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/13 12:03:12 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/14 14:09:42 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/14 14:17:42 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "Ice.hpp"
 
-#include <iostream>
+Ice::Ice(std::string name) {
+    this->name = name;
+    type = "ice";
+}
 
-class Animal {
+Ice::Ice(const Ice &obj) {
     
-protected :
-
-    std::string type;
-
-public :
-
-    Animal();
-    Animal(const Animal &obj);
-    Animal &operator=(const Animal &obj);
-    virtual ~Animal();
-
-    void setType(std::string type);
-    std::string getType() const;
-    
-    virtual void makeSound() const = 0;
-};
-
-
-#endif
+}

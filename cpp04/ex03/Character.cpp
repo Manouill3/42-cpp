@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 10:27:54 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/10 10:28:49 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/14 14:40:22 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/14 14:51:27 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#include "Character.hpp"
 
-#include "WrongAnimal.hpp"
+Character::Character() {}
 
-class WrongCat : public WrongAnimal {
+Character::Character(std::string name) {
+    this->name = name;
+}
 
-public :
+Character::Character(const Character &obj) {
+    name = obj.name;
+}
 
-    WrongCat();
-    WrongCat(const WrongCat &obj);
-    WrongCat &operator=(const WrongCat &obj);
-    ~WrongCat();
+Character &Character::operator=(const Character &obj) {
+    if (this != &obj)
+        name = obj.name;
+}
 
-    void makeSound() const;
-};
+Character::~Character() {}
 
-#endif
+std::string const &Character::getName() {
+    return name;
+}
