@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:23:58 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/14 14:39:53 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/15 14:23:37 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,7 @@ AMateria::~AMateria() {}
 std::string const &AMateria::getType() const {
     return type;
 }
+
+AMateria *AMateria::clone() const {}
+
+void AMateria::use(ICharacter &target) {}

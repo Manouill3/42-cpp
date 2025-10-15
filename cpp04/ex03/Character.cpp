@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:40:22 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/14 14:51:27 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/15 09:44:28 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ Character &Character::operator=(const Character &obj) {
 
 Character::~Character() {}
 
-std::string const &Character::getName() {
+std::string const &Character::getName() const {
     return name;
 }

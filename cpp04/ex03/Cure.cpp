@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 09:54:58 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/15 14:28:59 by mdegache         ###   ########.fr       */
+/*   Created: 2025/10/15 09:45:49 by mdegache          #+#    #+#             */
+/*   Updated: 2025/10/15 14:28:39 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
+#include "Cure.hpp"
 
-#include "AMateria.hpp"
-#include "Character.hpp"
+Cure::Cure(std::string name) {
+    this->name = name;
+}
 
-class Ice : public AMateria, public Character {
+Cure::Cure(const Cure &obj) {
+    name = obj.name;
+}
 
-public :
+Cure &Cure::operator=(const Cure &obj) {
+    if (this != &obj) {
+        name = obj.name;
+    }
+}
 
-    Ice(std::string name);
-    Ice(const Ice &obj);
-    Ice &operator=(const Ice &obj);
-    ~Ice();
+Cure::~Cure() {}
 
-    void use(ICharacter& target);
-    Ice *clone();
-};
+void Cure::use(ICharacter &target) {
+    
+}
 
-#endif
+Cure *Cure::clone() {}

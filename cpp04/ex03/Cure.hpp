@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:08:24 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/14 10:10:43 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/15 14:28:48 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #define CURE_HPP
 
 #include "AMateria.hpp"
+#include "Character.hpp"
 
-class Cure : public AMateria {
+class Cure : public AMateria, public Character {
 
 public :
 
@@ -25,6 +26,7 @@ public :
     ~Cure();
 
     void use(ICharacter& target);
+    Cure *clone();
 };
 
 #endif
