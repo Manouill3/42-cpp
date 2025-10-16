@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:09:42 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/15 14:28:54 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/15 15:22:43 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Ice &Ice::operator=(const Ice &obj) {
 
 Ice::~Ice() {}
 
-void Ice::use(ICharacter &target) {}
+void Ice::use(ICharacter &target) {
+    
+}
 
 Ice *Ice::clone() {}

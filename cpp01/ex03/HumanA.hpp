@@ -6,9 +6,12 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 10:01:59 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/23 11:05:37 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/15 09:36:06 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include "Weapon.hpp"
 
@@ -26,3 +29,5 @@ public :
 
     void attack(void);
 };
+
+#endif

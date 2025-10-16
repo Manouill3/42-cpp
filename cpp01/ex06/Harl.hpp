@@ -6,9 +6,12 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 13:22:25 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/25 13:29:24 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/15 09:37:42 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <iostream>
 
@@ -28,3 +31,5 @@ public :
 
     void complain(std::string level);
 };
+
+#endif

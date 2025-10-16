@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/23 14:07:55 by mdegache          #+#    #+#              #
-#    Updated: 2025/09/23 14:10:10 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/15 09:11:33 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,16 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC = main.cpp Harl.cpp
 
+OBJ = $(SRC:%.cpp=%.o)
+
 all: $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJ)
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
+
+%.o : %.cpp
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		@rm -f $(OBJ)
@@ -38,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY : all clean fclean re

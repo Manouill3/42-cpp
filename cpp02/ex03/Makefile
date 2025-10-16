@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/30 14:30:30 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/06 14:54:39 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/16 17:11:07 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,12 @@ OBJ = $(SRC:%.cpp=%.o)
 
 all : $(NAME)
 
-$(NAME) : $(SRC)
+$(NAME) : $(OBJ)
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
+
+%.o : %.cpp
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 clean : 
 		@rm -f $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:18:10 by mdegache          #+#    #+#             */
-/*   Updated: 2025/09/23 14:05:28 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/15 09:26:53 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,22 @@ int main(int ac, char **av) {
     std::string text;
     std::string outfile_name;
     
+    if (std::string(av[2]).size() < 1) {
+        std::cout << "You can't replace nothing" << std::endl;
+        return 1;
+    }
     outfile_name += std::string(av[1]);
     outfile_name += ".replace";
     std::ifstream infile(av[1]);
+    if (!infile) {
+        std::cout << "Infile doesn't exist" << std::endl;
+        return 1;
+    }
     std::ofstream outfile(outfile_name.c_str());    
-    
+    if (!outfile) {
+        std::cout << "Outfile creation failed" << std::endl;
+        return 1;
+    }
     text = file_to_text(infile);
     text = change_text(text, std::string(av[2]), std::string(av[3]));
     if (text.empty())

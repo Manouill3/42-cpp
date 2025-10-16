@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/22 14:54:53 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/14 21:51:36 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/15 08:41:32 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ SRC = main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
-all: $(OBJ)
+all: $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJ) 
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
 
