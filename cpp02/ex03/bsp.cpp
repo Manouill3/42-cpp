@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:22:56 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/06 15:27:08 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/17 13:16:17 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,5 @@ bool bsp(Point const a, Point const b, Point const c, Point const point) {
     alpha = getAlpha(b, c, point) / d;
     beta = getBeta(a, c, point) / d;
     gamma = 1.0f - alpha - beta;
-    if (alpha > 0 && beta > 0 && gamma > 0)
-        return true;
-    return false;
+    return (alpha > 0 && beta > 0 && gamma > 0);
 }

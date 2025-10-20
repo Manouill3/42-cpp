@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:08:24 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/15 14:28:48 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/20 14:56:41 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "AMateria.hpp"
 #include "Character.hpp"
 
-class Cure : public AMateria, public Character {
+class Cure : public AMateria {
 
 public :
 
@@ -25,8 +25,8 @@ public :
     Cure &operator=(const Cure &obj);
     ~Cure();
 
+    AMateria *clone() const;
     void use(ICharacter& target);
-    Cure *clone();
 };
 
 #endif

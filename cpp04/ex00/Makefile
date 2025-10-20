@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 09:29:58 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/10 10:36:10 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/20 08:25:53 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,16 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
+OBJ = $(SRC:%.cpp=%.o)
+
 all: $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJ)
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
+
+%.o : %.cpp
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		@rm -f $(OBJ)

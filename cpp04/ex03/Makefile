@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 09:29:58 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/14 09:56:55 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/20 14:59:20 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,18 @@ NAME = AMateria
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp AMateria.cpp Character.cpp Ice.cpp Cure.cpp
+
+OBJ = $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJ)
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
+
+%.o : %.cpp
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		@rm -f $(OBJ)

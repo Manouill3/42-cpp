@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/30 14:30:30 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/16 17:11:07 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/17 13:37:57 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ GREEN=\033[32m
 PURPLE=\033[35m
 RESET=\033[0m
 
-NAME = canon
+NAME = Bsp
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g

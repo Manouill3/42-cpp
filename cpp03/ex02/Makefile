@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/07 18:45:24 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/09 14:45:30 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/20 08:19:07 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,16 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
+OBJ = $(SRC:%.cpp=%.o)
+
 all: $(NAME)
 
 $(NAME): 
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
+
+%.o:%.cpp
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		@rm -f $(OBJ)
@@ -38,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY : all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:23:58 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/15 14:23:37 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/20 14:17:19 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ AMateria::AMateria(std::string const &type) {
 }
 
 AMateria::AMateria(const AMateria &obj) {
-    type = obj.type;
+    name = obj.name;
 }
 
 AMateria &AMateria::operator=(const AMateria &obj) {
     if (this != &obj)
-        type = obj.type;
+        name = obj.name;
 }
 
 AMateria::~AMateria() {}

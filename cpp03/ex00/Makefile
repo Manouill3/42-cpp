@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/07 18:45:24 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/07 20:33:13 by marvin           ###   ########.fr        #
+#    Updated: 2025/10/20 08:15:13 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,16 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC = main.cpp ClapTrap.cpp
 
+OBJ = $(SRC:%.cpp=%.o)
+
 all: $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJ)
 		@$(CC) $(SRC) $(CFLAGS) -o $(NAME)
 		@echo "$(GREEN)SUCCESS$(RESET)"
+
+%.o:%.cpp
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		@rm -f $(OBJ)
@@ -38,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY : all clean fclean re
