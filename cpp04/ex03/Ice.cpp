@@ -6,11 +6,15 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:09:42 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/20 14:57:00 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/21 10:18:16 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+
+Ice::Ice() {
+    type = "ice";
+}
 
 Ice::Ice(std::string name) {
     this->name = name;
@@ -27,6 +31,7 @@ Ice &Ice::operator=(const Ice &obj) {
         name = obj.name;
         type = obj.type;
     }
+    return *this;
 }
 
 Ice::~Ice() {}

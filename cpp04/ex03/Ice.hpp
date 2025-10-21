@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 09:54:58 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/20 14:56:19 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/21 09:27:29 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Ice : public AMateria {
 
 public :
 
+    Ice();
     Ice(std::string name);
     Ice(const Ice &obj);
     Ice &operator=(const Ice &obj);

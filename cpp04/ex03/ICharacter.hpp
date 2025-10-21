@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 09:49:42 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/14 10:59:44 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/21 09:48:44 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define ICHARACTER_HPP
 
 #include <iostream>
-#include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter {
 

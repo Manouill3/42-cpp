@@ -6,7 +6,7 @@
 #    By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 09:29:58 by mdegache          #+#    #+#              #
-#    Updated: 2025/10/20 14:59:20 by mdegache         ###   ########.fr        #
+#    Updated: 2025/10/21 10:11:14 by mdegache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = AMateria
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp AMateria.cpp Character.cpp Ice.cpp Cure.cpp
+SRC = main.cpp AMateria.cpp Character.cpp Ice.cpp Cure.cpp MateriaSource.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

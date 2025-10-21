@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 09:56:09 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/13 11:46:29 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/21 10:21:21 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@ Dog::Dog() {
 
 Dog::Dog(const Dog &obj) : Animal(obj) {
     type = obj.type;
+    brain = new Brain(*obj.brain);
     std::cout << "Dog copy constructor called" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &obj) {
-    if (this != &obj)
+    if (this != &obj) {
         type = obj.type;
+        brain = new Brain(*obj.brain);
+    }
     std::cout << "Dog copy assignement called" << std::endl;
     return *this;
 }

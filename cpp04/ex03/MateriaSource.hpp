@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 11:14:57 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/14 13:59:36 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/21 10:27:00 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 #define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
+#include "AMateria.hpp"
 
 class MateriaSource : public IMateriaSource {
 
+protected :
+
+    AMateria *tmp[4];
+    
 public :
 
     MateriaSource();

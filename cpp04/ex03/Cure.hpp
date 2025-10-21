@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:08:24 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/20 14:56:41 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/21 10:17:54 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Cure : public AMateria {
 
 public :
 
+    Cure();
     Cure(std::string name);
     Cure(const Cure &obj);
     Cure &operator=(const Cure &obj);
