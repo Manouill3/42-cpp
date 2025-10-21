@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:54:38 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/21 13:24:38 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:05:41 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ MateriaSource::~MateriaSource() {
 }
 
 void MateriaSource::learnMateria(AMateria *obj) {
-        
+    int i;
+    
+    i = 0;
+    while (tmp[i] && tmp[i] != NULL)
+        i++;
+    if (i < 4)
+        tmp[i] = obj->clone();
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
