@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:23:58 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/21 09:52:36 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/23 13:57:14 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,10 @@ AMateria &AMateria::operator=(const AMateria &obj) {
     return *this;
 }
 
-AMateria::~AMateria() {}
-
 std::string const &AMateria::getType() const {
     return type;
 }
 
 void AMateria::use(ICharacter &target) {
-    (void)target;
+    std::cout << "This is a default materia use on " << target.getName() << std::endl;
 }

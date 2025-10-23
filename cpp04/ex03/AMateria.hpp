@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 09:35:56 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/20 14:46:40 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/23 14:03:51 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
+
 
 
 class AMateria {
@@ -30,7 +31,7 @@ public :
     AMateria(std::string const &type);
     AMateria(const AMateria &obj);
     AMateria &operator=(const AMateria &obj);
-    ~AMateria();
+    virtual ~AMateria() {}
     
     std::string const &getType() const;
     

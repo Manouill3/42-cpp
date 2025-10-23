@@ -6,24 +6,36 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 09:35:16 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/20 11:26:01 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/22 14:10:54 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name) {
-    this->name = name;
+DiamondTrap::DiamondTrap() {
+    this->name = "";
     ClapTrap::name = name + "_clap_name";
     hit_pts = def_hit_pts;
+    max_hp = hit_pts;
     energy_pts = def_energy_pts;
     atk_damage = def_atk_damage;
     std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
+DiamondTrap::DiamondTrap(std::string name) {
+    this->name = name;
+    ClapTrap::name = name + "_clap_name";
+    hit_pts = def_hit_pts;
+    max_hp = hit_pts;
+    energy_pts = def_energy_pts;
+    atk_damage = def_atk_damage;
+    std::cout << "DiamondTrap name constructor called" << std::endl;
+}
+
 DiamondTrap::DiamondTrap(const DiamondTrap &obj) {
     name = obj.name;
     hit_pts = obj.hit_pts;
+    max_hp = obj.max_hp;
     energy_pts = obj.energy_pts;
     atk_damage = obj.atk_damage;
     std::cout << "DiamondTrap copy constructor called" << std::endl;
@@ -33,6 +45,7 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &obj) {
     if (this != &obj) {
         name = obj.name;
         hit_pts = obj.hit_pts;
+        max_hp = obj.max_hp;
         energy_pts = obj.energy_pts;
         atk_damage = obj.atk_damage;
     }

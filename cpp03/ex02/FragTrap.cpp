@@ -6,23 +6,34 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 09:00:00 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/09 14:42:07 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/22 14:03:50 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) {
-    this->name = name;
+FragTrap::FragTrap() {
+    this->name = "";
     hit_pts = 100;
+    max_hp = hit_pts;
     energy_pts = 100;
     atk_damage = 30;
     std::cout << "FragTrap default constructor called" << std::endl;
 }
 
+FragTrap::FragTrap(std::string name) {
+    this->name = name;
+    hit_pts = 100;
+    max_hp = hit_pts;
+    energy_pts = 100;
+    atk_damage = 30;
+    std::cout << "FragTrap name constructor called" << std::endl;
+}
+
 FragTrap::FragTrap(const FragTrap &obj) {
     name = obj.name;
     hit_pts = obj.hit_pts;
+    max_hp = obj.max_hp;
     energy_pts = obj.energy_pts;
     atk_damage = obj.atk_damage;
     std::cout << "FragTrap copy constructor called" << std::endl;
@@ -32,6 +43,7 @@ FragTrap &FragTrap::operator=(const FragTrap &obj) {
     if (this != &obj) {
         name = obj.name;
         hit_pts = obj.hit_pts;
+        max_hp = obj.max_hp;
         energy_pts = obj.energy_pts;
         atk_damage = obj.atk_damage;
     }
@@ -47,6 +59,7 @@ void FragTrap::attack(const std::string &target) {
     std::cout << ", causing " << this->atk_damage;
     std::cout << " points of damage!" << std::endl;
     energy_pts -= 1;
+    std::cout << "new energy : " << this->energy_pts << std::endl;
 }
 
 void FragTrap::highFivesGuys() {

@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 18:52:23 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/09 09:29:44 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/22 14:00:54 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ protected :
     int hit_pts;
     int energy_pts;
     int atk_damage;
+
+    int max_hp;
     
 public :
 

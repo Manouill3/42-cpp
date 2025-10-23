@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:32:54 by mdegache          #+#    #+#             */
-/*   Updated: 2025/10/21 09:32:20 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/22 11:25:41 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ protected :
 
     std::string name;
     AMateria *inventory[4];
+    AMateria **floor;
+    int floor_size;
     
 public :
 

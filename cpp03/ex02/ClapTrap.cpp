@@ -6,7 +6,7 @@
 /*   By: mdegache <mdegache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 11:22:39 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/09 14:41:07 by mdegache         ###   ########.fr       */
+/*   Updated: 2025/10/22 14:00:42 by mdegache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 ClapTrap::ClapTrap() {
     this->name = "";
     hit_pts = 10;
+    max_hp = hit_pts;
     energy_pts = 10;
     atk_damage = 0;
     std::cout << "ClapTrap default constructor called" << std::endl;
@@ -23,14 +24,16 @@ ClapTrap::ClapTrap() {
 ClapTrap::ClapTrap(std::string name) {
     this->name = name;
     hit_pts = 10;
+    max_hp = hit_pts;
     energy_pts = 10;
     atk_damage = 0;
-    std::cout << "ClapTrap default constructor called" << std::endl;
+    std::cout << "ClapTrap name constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj) {
     name = obj.name;
     hit_pts = obj.hit_pts;
+    max_hp = obj.max_hp;
     energy_pts = obj.energy_pts;
     atk_damage = obj.atk_damage;
     std::cout << "ClapTrap copy constructor called" << std::endl;
@@ -40,6 +43,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
     if (this != &obj) {
         name = obj.name;
         hit_pts = obj.hit_pts;
+        max_hp = obj.max_hp;
         energy_pts = obj.energy_pts;
         atk_damage = obj.atk_damage;
     }
@@ -63,6 +67,7 @@ void ClapTrap::attack(const std::string &target) {
     std::cout << ", causing " << this->atk_damage;
     std::cout << " points of damage!" << std::endl;
     energy_pts -= 1;
+    std::cout << "new energy : " << this->energy_pts << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
@@ -74,6 +79,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
     std::cout << " lost " << amount;
     std::cout << " hit points!" << std::endl;
     hit_pts -= amount;
+    std::cout << "new life : " << this->hit_pts << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
@@ -89,5 +95,9 @@ void ClapTrap::beRepaired(unsigned int amount) {
     std::cout << " regained " << amount;
     std::cout << " hit points!" << std::endl;
     hit_pts += amount;
+    if (hit_pts > max_hp || hit_pts < 0)
+        hit_pts = max_hp;
     energy_pts -= 1;
+    std::cout << "new life : " << this->hit_pts << std::endl;
+    std::cout << "new energy : " << this->energy_pts << std::endl;
 }
