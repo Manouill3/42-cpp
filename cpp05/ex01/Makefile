@@ -8,7 +8,7 @@ NAME = bureaucrat
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 DIR = build
 OBJ = $(SRC:%.cpp=$(DIR)/%.o)

@@ -81,9 +81,21 @@ std::ostream &operator<<(std::ostream &output, const Bureaucrat &obj) {
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-    return "The grade is too high !!!";
+    return "the grade is too high !!!";
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
-    return "The grade is too low !!!";
+    return "the grade is too low !!!";
+}
+
+void Bureaucrat::signForm(AForm &form) {
+    try {
+        form.beSigned(*this);
+        if (form.get_isSigned() == true)
+            std::cout << name << " signed " << form.get_name() << std::endl;
+                
+    }
+    catch(std::exception &e) {
+        std::cout << name << " couldn't sign " << form.get_name() << " because " << e.what() << std::endl;
+    }
 }

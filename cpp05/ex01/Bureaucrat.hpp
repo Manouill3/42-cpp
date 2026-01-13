@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
 class Bureaucrat {
 
@@ -40,6 +41,8 @@ class Bureaucrat {
                 virtual const char *what() const throw();
 
         };
+
+        void signForm(Form &form);
 };
 
 
