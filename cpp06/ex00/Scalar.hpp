@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 class Scalar {
 
@@ -17,7 +18,5 @@ class Scalar {
 
         static void convert(std::string val);
 };
-
-double ConvToD(std::string val);    
 
 #endif

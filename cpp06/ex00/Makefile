@@ -3,7 +3,7 @@ GREEN=\033[32m
 PURPLE=\033[35m
 RESET=\033[0m
 
-NAME = bureaucrat
+NAME = Scalar
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
