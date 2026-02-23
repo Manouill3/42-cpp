@@ -32,14 +32,16 @@ double ConvToD(std::string val) {
 void Scalar::convert(std::string val) {
     std::string strval = val;
 
-    double convD = ConvToD(strval);
-    if (convD == 0 && val.length() > 1) {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: nanf" << std::endl;
-        std::cout << "double: nan" << std::endl;
-        return ;
+    for (size_t i = 0; i < val.length(); i++) {
+        if (val[i] < 48 || val[i] > 57) {
+            std::cout << "char: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: impossible" << std::endl;
+            std::cout << "double: impossible" << std::endl;
+            return ;
+        }
     }
+    double convD = ConvToD(strval);
     if (convD > 6 && convD < 127)
         std::cout << "char: " << static_cast<char>(convD) << std::endl;
     else
