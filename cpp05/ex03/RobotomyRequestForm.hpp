@@ -2,7 +2,8 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include <iostream>
-#include <random>
+#include <stdlib.h>
+#include <time.h>
 #include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm{

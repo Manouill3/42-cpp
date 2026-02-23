@@ -3,12 +3,12 @@ GREEN=\033[32m
 PURPLE=\033[35m
 RESET=\033[0m
 
-NAME = bureaucrat
+NAME = Type
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
+SRC = main.cpp 
 
 DIR = build
 OBJ = $(SRC:%.cpp=$(DIR)/%.o)

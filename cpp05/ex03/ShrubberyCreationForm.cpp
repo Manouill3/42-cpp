@@ -24,6 +24,10 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
         
             outfile_name = target + "_shrubbery";
             std::ofstream outfile(outfile_name.c_str());
+            if (!outfile) {
+                std::cout << "File creation failed" << std::endl;
+                return ;
+            }
             outfile << "       _-_\n"       
                     << "    /~~   ~~\\\n"
                     << " /~~         ~~\\\n"

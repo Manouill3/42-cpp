@@ -1,14 +1,14 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name(""), sign_grade(0) , exec_grade(0) {}
+AForm::AForm() : name(""), sign_grade(1) , exec_grade(1) {}
 
 AForm::AForm(std::string name, int sign, int exec) : name(name), sign_grade(sign), exec_grade(exec) {
     is_signed = false;
     try {
         if (sign_grade > 150 || exec_grade > 150)
             throw(GradeTooLowException());
-        else if (sign_grade < 0 || exec_grade < 0)
+        else if (sign_grade < 1 || exec_grade < 1)
             throw(GradeTooHighException());
     }
     catch(std::exception &e) {
@@ -21,7 +21,7 @@ AForm::AForm(const AForm &obj) : name(obj.name), sign_grade(obj.sign_grade), exe
     try {
         if (sign_grade > 150 || exec_grade > 150)
             throw(GradeTooLowException());
-        else if (sign_grade < 0 || exec_grade < 0)
+        else if (sign_grade < 1 || exec_grade < 1)
             throw(GradeTooHighException());
     }
     catch(std::exception &e) {
@@ -35,7 +35,7 @@ AForm &AForm::operator=(const AForm &obj) {
         try {
             if (sign_grade > 150 || exec_grade > 150)
                 throw(GradeTooLowException());
-            else if (sign_grade < 0 || exec_grade < 0)
+            else if (sign_grade < 1 || exec_grade < 1)
                 throw(GradeTooHighException());
         }
         catch(std::exception &e) {

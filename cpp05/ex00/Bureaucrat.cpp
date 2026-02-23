@@ -1,12 +1,12 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("") { grade = 0; }
+Bureaucrat::Bureaucrat() : name("") { grade = 1; }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
     try {
         if (grade > 150)
             throw(GradeTooLowException());
-        else if (grade < 0)
+        else if (grade < 1)
             throw(GradeTooHighException());
         else
             this->grade = grade;
@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj) : name(obj.name) {
     try {
         if (grade > 150)
             throw(GradeTooLowException());
-        else if (grade < 0)
+        else if (grade < 1)
             throw(GradeTooHighException());
         else
             grade = obj.grade;
@@ -35,7 +35,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj) {
         try {
             if (grade > 150)
                 throw(GradeTooLowException());
-            else if (grade < 0)
+            else if (grade < 1)
                 throw(GradeTooHighException());
             else
                 grade = obj.grade;
@@ -66,7 +66,7 @@ void Bureaucrat::decrementGrade() {
 
 void Bureaucrat::incrementGrade() {
     try {
-        if (grade - 1 < 0)
+        if (grade - 1 < 1)
             throw(GradeTooHighException());
         grade -= 1;
     }

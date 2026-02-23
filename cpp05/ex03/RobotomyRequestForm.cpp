@@ -22,6 +22,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
         else {
             std::cout << executor.getName() << " executed " << name << std::endl;
             std::cout << "*** some drilling noises ***" << std::endl;
+            srand(time(0));
             int randomNumber = rand() % 2;
             if (randomNumber == 0)
                 std::cout << target << " has been robotomized by " << executor.getName() << std::endl;

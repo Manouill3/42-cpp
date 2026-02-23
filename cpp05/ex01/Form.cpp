@@ -1,14 +1,14 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : name(""), sign_grade(0) , exec_grade(0) {}
+Form::Form() : name(""), sign_grade(1) , exec_grade(1) {}
 
 Form::Form(std::string name, int sign, int exec) : name(name), sign_grade(sign), exec_grade(exec) {
     is_signed = false;
     try {
         if (sign_grade > 150 || exec_grade > 150)
             throw(GradeTooLowException());
-        else if (sign_grade < 0 || exec_grade < 0)
+        else if (sign_grade < 1 || exec_grade < 1)
             throw(GradeTooHighException());
     }
     catch(std::exception &e) {
@@ -21,7 +21,7 @@ Form::Form(const Form &obj) : name(obj.name), sign_grade(obj.sign_grade), exec_g
     try {
         if (sign_grade > 150 || exec_grade > 150)
             throw(GradeTooLowException());
-        else if (sign_grade < 0 || exec_grade < 0)
+        else if (sign_grade < 1 || exec_grade < 1)
             throw(GradeTooHighException());
     }
     catch(std::exception &e) {
@@ -33,9 +33,9 @@ Form &Form::operator=(const Form &obj) {
     if (this != &obj) {
         is_signed = obj.is_signed;
         try {
-            if (sign_grade > 150 || exec_grade > 150)
+            if (sign_grade > 151 || exec_grade > 150)
                 throw(GradeTooLowException());
-            else if (sign_grade < 0 || exec_grade < 0)
+            else if (sign_grade < 1 || exec_grade < 1)
                 throw(GradeTooHighException());
         }
         catch(std::exception &e) {
