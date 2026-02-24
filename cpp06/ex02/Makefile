@@ -8,7 +8,7 @@ NAME = Type
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp 
+SRC = main.cpp Base.cpp
 
 DIR = build
 OBJ = $(SRC:%.cpp=$(DIR)/%.o)
