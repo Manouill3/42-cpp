@@ -5,6 +5,11 @@
 
 template<typename T> class Array {
 
+    private :
+
+        T *array;
+        unsigned int n;
+
     public :
 
         Array();
@@ -12,6 +17,9 @@ template<typename T> class Array {
         Array(const Array &obj);
         Array &operator=(const Array &obj);
         ~Array();
+
+        int size();
+        T operator[](int i);
         
 };
 
