@@ -19,7 +19,7 @@ template<typename T> class Array {
         ~Array();
 
         int size();
-        T operator[](int i);
+        T &operator[](unsigned int i);
         
 };
 
