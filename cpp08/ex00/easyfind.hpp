@@ -4,6 +4,6 @@
 #include <iostream>
 
 template<typename T>
+int easyfind(T tab, int val);
 
-
-#endif EASYFIND_HPP
+#endif
