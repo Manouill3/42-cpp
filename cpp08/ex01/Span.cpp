@@ -39,7 +39,7 @@ int Span::shortestSpan() {
             tmp = tab[i] - tab[j];
             if (tmp < 0)
                 tmp = -tmp;
-            if (tmp > tab[i])
+            else if (tmp > tab[i])
                 tmp = tmp - tab[i];
             if (tmp < span)
                 span = tmp;
@@ -59,15 +59,12 @@ int Span::longestSpan() {
     for (size_t i = 0; i < tab.size(); i++) {
         for (size_t j = i + 1; j < tab.size(); j++) {
             tmp = tab[i] - tab[j];
-            std::cout << "tmp : " << tmp << std::endl;
             if (tmp < 0)
                 tmp = -tmp;
-            if (tmp > tab[i])
+            else if (tmp > tab[i])
                 tmp = tmp - tab[i];
             if (tmp > span)
                 span = tmp;
-            std::cout << "tab[i] : " << tab[i] << " tab[j] : " << tab[j] << std::endl;
-            std::cout << "longest span : " << span << std::endl;
         }
     }
     return span;
