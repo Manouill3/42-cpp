@@ -4,7 +4,7 @@
 
 Base *generate(void) {
     srand(time(0));
-    int randomNumber = rand() % 3;
+    int randomNumber = rand() % 4;
     
     switch (randomNumber) {
         case 0 :
@@ -52,9 +52,13 @@ void identify(Base &p) {
 }
 
 int main(void) {
-    Base *randomtype;
+    for (size_t i = 0; i < 20; i++)
+    {
+        Base *randomtype;
 
-    randomtype = generate();
-    identify(randomtype);
-    identify(*randomtype);
+        randomtype = generate();
+        identify(randomtype);
+        identify(*randomtype);
+        delete randomtype;
+    }
 }

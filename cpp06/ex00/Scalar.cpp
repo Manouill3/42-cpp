@@ -82,12 +82,11 @@ int handle_case(std::string val) {
 }
 
 int handle_overflow(long double conv) {
-    if (conv > std::numeric_limits<int>::max() || conv < -std::numeric_limits<int>::max()) {
+    if (conv > std::numeric_limits<double>::max() || conv < -std::numeric_limits<double>::max()) {
         std::cout << "char: " << "non displayable" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        std::cout << std::fixed << std::setprecision(1);
-        std::cout << "float: " << static_cast<float>(conv) << "f" << std::endl;
-        std::cout << "double: " << conv << std::endl;
+        std::cout << "float: impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
         return 1;
     }
     if (conv > std::numeric_limits<float>::max() || conv < -std::numeric_limits<float>::max()) {
@@ -98,12 +97,12 @@ int handle_overflow(long double conv) {
         std::cout << "double: " << static_cast<double>(conv) << std::endl;
         return 1;
     }
-    if (conv > std::numeric_limits<double>::max() || conv < -std::numeric_limits<double>::max()) {
+    if (conv > std::numeric_limits<int>::max() || conv < -std::numeric_limits<int>::max()) {
         std::cout << "char: " << "non displayable" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << std::fixed << std::setprecision(1);
-        std::cout << "float: impossible" << std::endl;
-        std::cout << "double: impossible" << std::endl;
+        std::cout << "float: " << static_cast<float>(conv) << "f" << std::endl;
+        std::cout << "double: " << static_cast<double>(conv) << std::endl;
         return 1;
     }
     return 0;
@@ -113,6 +112,8 @@ void Scalar::convert(std::string val) {
     int nb_char = 0;
     std::string strval = val;
     
+    if (!val.length())
+        throw std::exception();
     long double convD = ConvToD(strval);
     for (size_t i = 0; i < val.length(); i++) {
         if (val[i] < 48 || val[i] > 57)
