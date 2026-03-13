@@ -9,4 +9,6 @@ int main(void) {
     ptr = Serializer::serialize(data);
     redata = Serializer::deserialize(ptr);
     std::cout << redata->data << std::endl;
+
+    delete data;
 }

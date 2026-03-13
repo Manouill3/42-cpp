@@ -48,14 +48,14 @@ int handle_error(std::string val, int nb) {
 }
 
 int handle_case(std::string val) {
-    if (val == "+inf" || val == "-inf") {
+    if (val == "inf" || val == "+inf" || val == "-inf") {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: " << val << "f" << std::endl;
         std::cout << "double: " << val << std::endl;
         return 1;
     }
-    if (val == "+inff" || val == "-inff") {
+    if (val == "inff" || val == "+inff" || val == "-inff") {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: " << val << std::endl;
@@ -97,7 +97,7 @@ int handle_overflow(long double conv) {
         std::cout << "double: " << static_cast<double>(conv) << std::endl;
         return 1;
     }
-    if (conv > std::numeric_limits<int>::max() || conv < -std::numeric_limits<int>::max()) {
+    if (conv > std::numeric_limits<int>::max() || conv < -std::numeric_limits<int>::max() - 1) {
         std::cout << "char: " << "non displayable" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << std::fixed << std::setprecision(1);
