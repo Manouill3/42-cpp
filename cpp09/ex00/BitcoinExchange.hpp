@@ -5,12 +5,13 @@
 #include <map>
 #include <fstream>
 #include <string.h>
+#include <sstream>
 
 class BitcoinExchange {
 
     private :
 
-        std::map<std::string, std::string> date;
+        std::map<std::string, double> date;
 
     public :
 
@@ -21,6 +22,8 @@ class BitcoinExchange {
         ~BitcoinExchange();
 
         void printVal(std::string input);
+        void loop(std::string line);
+        void handle_error(double val);
 };
 
 #endif
