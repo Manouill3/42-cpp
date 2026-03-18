@@ -42,35 +42,38 @@ void RPN::solve(std::string exp) {
             float nb = convToF(val);
             stack.push(nb);
         }
-        if (val[0] == '+') {
+        else if (val[0] == '+' && stack.size() > 1) {
             float n1 = stack.top();
             stack.pop();
             float n2 = stack.top();
             stack.pop();
             stack.push(n2 + n1);
         }
-        if (val[0] == '-') {
+        else if (val[0] == '-' && stack.size() > 1) {
             float n1 = stack.top();
             stack.pop();
             float n2 = stack.top();
             stack.pop();
             stack.push(n2 - n1);
         }
-        if (val[0] == '*') {
+        else if (val[0] == '*' && stack.size() > 1) {
             float n1 = stack.top();
             stack.pop();
             float n2 = stack.top();
             stack.pop();
             stack.push(n2 * n1);
         }
-        if (val[0] == '/') {
+        else if (val[0] == '/' && stack.size() > 1) {
             float n1 = stack.top();
             stack.pop();
             float n2 = stack.top();
             stack.pop();
+            if (!n1)
+                throw std::invalid_argument("Error: impossible division");
             stack.push(n2 / n1);
         }
-            
+        else
+            throw std::invalid_argument("Error: invalid input");    
     }
 
     std::cout << stack.top() << std::endl;
