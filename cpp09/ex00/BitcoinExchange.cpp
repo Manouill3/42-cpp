@@ -36,23 +36,68 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj) {
 
 BitcoinExchange::~BitcoinExchange() {}
 
+int is_leap(int y) {
+    if (y % 4 == 0)
+        return 1;
+    return 0;
+}
+
+void parse_date(std::string tok1) {
+    std::string sty = strtok((char *)tok1.c_str(), "-");
+    std::string stm = strtok(NULL, "-");
+    std::string std = strtok(NULL, "-");
+    
+    std::stringstream ssy;
+    int y;
+    ssy << sty;
+    ssy >> y;
+
+    std::stringstream ssm;
+    int m;
+    ssm << stm;
+    ssm >> m;
+
+    std::stringstream ssd;
+    int d;
+    ssd << std;
+    ssd >> d;
+    
+    if (y < 1 || m < 1 || m > 12)
+        throw std::invalid_argument("Error: bad input");
+
+    int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    
+    if (is_leap(y)) {
+        if (m == 1 && (d < 0 || d > 29))
+            throw std::invalid_argument("Error: bad input");
+    }
+    if (d > days[m + 1] || d < 1)
+        throw std::invalid_argument("Error: bad input");
+    
+}
+
 void BitcoinExchange::handle_error(double val) {
     if (val < 0)
         throw std::invalid_argument("Error: not a positive number");
     if (val > 1000)
         throw std::invalid_argument("Error: value above 1000");
-    
 }
 
 void BitcoinExchange::loop(std::string line) {
     std::stringstream ss;
     double val;
+    std::string tok1;
+    std::string tok2;
 
-    std::string tok1 = strtok((char *)line.c_str(), " | ");
-    std::string tok2 = strtok(NULL, " | ");
-    ss << tok2;
-    ss >> val;
-    
+    if (line.find("|") != std::string::npos) {
+        tok1 = strtok((char *)line.c_str(), " | ");
+        tok2 = strtok(NULL, " | ");
+        ss << tok2;
+        ss >> val;
+        parse_date(tok1);
+    }
+    else
+        throw std::invalid_argument("Error: no value");
     handle_error(val);
     
     if (date.count(tok1) == 0) {
