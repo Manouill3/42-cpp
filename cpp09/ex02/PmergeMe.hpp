@@ -31,6 +31,7 @@ class PmergeMe {
         void jacob(size_t size);
         void setVec(size_t size);
         int binary(int val, size_t size);
+        void addPair(int newIdx, int idxPair, size_t size);
 };
 
 #endif
