@@ -16,7 +16,7 @@ template<typename T>
 Array<T>::Array(const Array &obj) {
     n = obj.n;
     array = new T(obj.n);
-    for (int i = 0; i < n; i++)
+    for (unsigned int i = 0; i < n; i++)
         array[i] = obj.array[i];
 }
 
@@ -38,7 +38,7 @@ Array<T>::~Array() {
 }
 
 template<typename T>
-int Array<T>::size() {
+unsigned int Array<T>::size() {
     return n;
 }
 
