@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
+#include <time.h>
+#include <algorithm>
 
 class Span {
 
@@ -19,6 +22,7 @@ class Span {
         Span &operator=(const Span &obj);
         ~Span();
 
+        std::vector<int> &getTab();
         void addNumber(int val);
         int shortestSpan();
         int longestSpan();

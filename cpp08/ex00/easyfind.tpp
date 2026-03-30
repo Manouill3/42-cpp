@@ -2,9 +2,12 @@
 
 template<typename T>
 int easyfind(T tab, int i) {
-    for (int n = 0; tab[n]; n++) {
-        if (tab[n] == i)
-            return n;
+    try {
+        if (tab.find(i))
+            return tab.find(i);
+        throw std::invalid_argument("ERROR: no occurrence int this container");
     }
-    throw std::exception();
+    catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
 }

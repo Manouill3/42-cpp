@@ -21,51 +21,37 @@ Span::~Span() {}
 
 void Span::addNumber(int val) {
     if (tab.size() == max)
-        throw std::exception();
+        throw std::invalid_argument("ERROR: max reached");
     else
         tab.push_back(val);
 }
 
 int Span::shortestSpan() {
-    int span = tab[0] - tab[1];
-    int tmp;
+    if (tab.size() < 2)
+        throw std::invalid_argument("ERROR: tab not lomg enough");
 
-    if (span < 0)
-        span = -span;
-    if (span > tab[0])
-        span = span - tab[0];
-    for (size_t i = 0; i < tab.size(); i++) {
-        for (size_t j = i + 1; j < tab.size(); j++) {
-            tmp = tab[i] - tab[j];
-            if (tmp < 0)
-                tmp = -tmp;
-            else if (tmp > tab[i])
-                tmp = tmp - tab[i];
-            if (tmp < span)
-                span = tmp;
-        }
+    std::vector<int> tmp = tab;
+    std::sort(tmp.begin(), tmp.end());
+    int shortest = tmp[1] - tmp[0];
+    for (unsigned int i = 0; i < tmp.size() - 1; i++) {
+        if (tmp[i + 1] - tmp[i] < shortest)
+            shortest = tmp[i + 1] - tmp[i];
     }
-    return span;
+
+    return shortest;
 }
 
 int Span::longestSpan() {
-    int span = tab[0] - tab[1];
-    int tmp;
+    if (tab.size() < 2)
+        throw std::invalid_argument("ERROR: tab not lomg enough");
 
-    if (span < 0)
-        span = -span;
-    if (span > tab[0])
-        span = span - tab[0];
-    for (size_t i = 0; i < tab.size(); i++) {
-        for (size_t j = i + 1; j < tab.size(); j++) {
-            tmp = tab[i] - tab[j];
-            if (tmp < 0)
-                tmp = -tmp;
-            else if (tmp > tab[i])
-                tmp = tmp - tab[i];
-            if (tmp > span)
-                span = tmp;
-        }
-    }
-    return span;
+    std::vector<int> tmp = tab;
+    std::sort(tmp.begin(), tmp.end());
+    int longest = tmp[tmp.size() - 1] - tmp[0];
+
+    return longest;
+}
+
+std::vector<int> &Span::getTab() {
+    return tab;
 }

@@ -45,6 +45,6 @@ unsigned int Array<T>::size() {
 template<typename T>
 T &Array<T>::operator[](unsigned int i) {
     if (i >= n)
-        throw std::exception();
+        throw std::invalid_argument("ERROR: i > n");
     return array[i];
 }
