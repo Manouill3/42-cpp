@@ -22,6 +22,7 @@ template<typename T> class Array {
 
         unsigned int size();
         T &operator[](unsigned int i);
+        const T &operator[](unsigned int i) const;
         
 };
 

@@ -29,6 +29,17 @@ int main() {
 
         std::cout << "size : " << tabstr.size() << std::endl;
         std::cout << std::endl;
+
+        std::cout << "TEST CONST :" << std::endl;
+        std::cout << std::endl;
+
+        const Array<std::string> tabconst(tabstr);
+        for (int i = 0; i < 5; i++)
+            std::cout << tabconst[i] << " ";
+        std::cout << std::endl;
+
+        std::cout << "size : " << tabstr.size() << std::endl;
+        std::cout << std::endl;
     }
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;

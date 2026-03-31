@@ -2,7 +2,7 @@
 
 template<typename T>
 Array<T>::Array() {
-    array = new T[0];
+    array = NULL;
     n = 0;
 }
 
@@ -45,6 +45,13 @@ unsigned int Array<T>::size() {
 template<typename T>
 T &Array<T>::operator[](unsigned int i) {
     if (i >= n)
-        throw std::invalid_argument("ERROR: i > n");
+        throw std::invalid_argument("ERROR: out of range of array");
+    return array[i];
+}
+
+template<typename T>
+const T &Array<T>::operator[](unsigned int i) const {
+    if (i >= n)
+        throw std::invalid_argument("ERROR: out of range of array");
     return array[i];
 }

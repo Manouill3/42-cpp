@@ -2,8 +2,13 @@
 #define EASYFIND_HPP
 
 #include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include <cstdlib>
+#include <time.h>
 
 template<typename T>
-int easyfind(T tab, int val);
+void easyfind(T &tab, int val);
 
 #endif
