@@ -4,17 +4,22 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <algorithm>
+#include <sys/time.h>
+#include <stdint.h>
+#include <deque>
 
+template <typename T>
 class PmergeMe {
 
     private :
 
-        std::vector<int> tab;
-        std::vector<int> jacoblist;
+        T tab;
+        T jacoblist;
 
-        std::vector<int> pend;
-        std::vector<int> result;
-        std::vector<int> rest;
+        T pend;
+        T result;
+        T rest;
 
     public :
 
@@ -24,14 +29,20 @@ class PmergeMe {
         PmergeMe &operator=(const PmergeMe &obj);
         ~PmergeMe();
 
-        void sortPair();
-        void swap_size(size_t size, int idx1, int idx2);
+        T &get_tab();
 
+        void swap_size(size_t size, int idx1, int idx2);
+        void sortPair();
         void merge(size_t size);
         void jacob(size_t size);
         void setVec(size_t size);
         int binary(int val, size_t size);
-        void addPair(int newIdx, int idxPair, size_t size);
+        void insertPair(int newIdx, int idxPair, size_t size);
+        void addPair(T &src, T &dest, size_t size);
+        void put_all(T &src, T &dest);
+
+        void print_tab(T tab);
+        uint64_t get_micro();
 };
 
 #endif

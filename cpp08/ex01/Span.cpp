@@ -52,6 +52,10 @@ int Span::longestSpan() {
     return longest;
 }
 
+void Span::addMultiple(int pos, std::vector<int> range) {
+    tab.insert(tab.begin() + pos, range.begin(), range.end());    
+}
+
 std::vector<int> &Span::getTab() {
     return tab;
 }

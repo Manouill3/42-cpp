@@ -8,7 +8,7 @@ NAME = PmergeMe
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp PmergeMe.cpp
+SRC = main.cpp
 
 DIR = build
 OBJ = $(SRC:%.cpp=$(DIR)/%.o)

@@ -26,6 +26,14 @@ int main() {
         }   
         std::cout << "shortest span : " << test.shortestSpan() << std::endl;
         std::cout << "longest span : " << test.longestSpan() << std::endl;
+
+        std::cout << std::endl;
+
+        Span test2(5);
+        
+        test2.addMultiple(0, sp.getTab());
+        std::cout << "shortest span : " << test2.shortestSpan() << std::endl;
+        std::cout << "longest span : " << test2.longestSpan() << std::endl;
     }
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;

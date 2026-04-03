@@ -23,7 +23,9 @@ class Span {
         ~Span();
 
         std::vector<int> &getTab();
+
         void addNumber(int val);
+        void addMultiple(int pos, std::vector<int> range);
         int shortestSpan();
         int longestSpan();
 };

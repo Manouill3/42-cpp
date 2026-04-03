@@ -16,7 +16,16 @@ PmergeMe<T>::PmergeMe(int ac, char **av) {
 
     jacoblist.push_back(0);
     jacoblist.push_back(1);
+    jacoblist.push_back(1);
+
+    T tmp = tab;
+    std::sort(tmp.begin(), tmp.end());
+    for (typename T::iterator it = tmp.begin(); it < tmp.end() - 1; it++) {
+        if (*it == *(it + 1))
+            throw std::invalid_argument("Error: Duplicate number");
+    }
 }
+
 
 template <typename T>
 PmergeMe<T>::PmergeMe(const PmergeMe &obj) {
@@ -64,6 +73,7 @@ void PmergeMe<T>::sortPair() {
         }
         pairSize *= 2;
     }
+
     merge(pairSize / 2);
 }
 
@@ -73,31 +83,6 @@ void PmergeMe<T>::merge(size_t size) {
         jacob(size);
         size /= 2;
     }
-}
-
-template <typename T>
-void PmergeMe<T>::jacob(size_t size) {
-    setVec(size);
-
-    size_t count = 1;
-    while (!pend.empty()) {
-        int len = jacoblist[count] - jacoblist[count - 1];
-        while (len > 0) {
-            int idx = binary(pend[len * size - 1], size);
-            addPair(idx, len * size, size);
-            len--;
-        }
-        count++;
-        if (count + 1 > jacoblist.size())
-            jacoblist.push_back(jacoblist[count] + (jacoblist[count - 1] * 2));
-    }
-    for (size_t i = 0; i < rest.size(); i++)
-        result.push_back(rest[i]);
-    tab = result;
-
-    for (size_t i = 0; i < tab.size(); i++)
-        std::cout << tab[i] << " ";
-    std::cout << std::endl;
 }
 
 template <typename T>
@@ -137,6 +122,31 @@ void PmergeMe<T>::setVec(size_t size) {
 }
 
 template <typename T>
+void PmergeMe<T>::jacob(size_t size) {
+    setVec(size);
+
+    size_t count = 1;
+    while (!pend.empty()) {
+        int len = jacoblist[count] - jacoblist[count - 1];
+        if (len * size - 1 > pend.size()) {
+            len = pend.size() / size;
+        }
+        while (len > 0 && !pend.empty()) {
+            int idx = binary(pend[len * size - 1], size);
+            insertPair(idx, len * size - 1, size);
+            len--;
+        }
+        if (count + 2 > jacoblist.size())
+            jacoblist.push_back(jacoblist[count] + (jacoblist[count - 1] * 2));
+        count++;
+    }
+    for (size_t i = 0; i < rest.size(); i++)
+        result.push_back(rest[i]);
+    tab = result;
+
+}
+
+template <typename T>
 int PmergeMe<T>::binary(int val, size_t size) {
     T max;
 
@@ -162,11 +172,54 @@ int PmergeMe<T>::binary(int val, size_t size) {
 }
 
 template <typename T>
-void PmergeMe<T>::addPair(int newIdx, int idxPair, size_t size) {
-    
-    for (size_t i = idxPair; i > idxPair - size; i--)
-        result.insert(result.begin() + newIdx * size, pend[i - 1]);
+void PmergeMe<T>::put_all(T &src, T &dest) {
+    for (size_t i = 0; i < src.size(); i++) {
+        dest.push_back(src[i]);
+    }
 
-    for (size_t i = idxPair; i > idxPair - size; i--)
-        pend.erase(pend.begin() + i - 1);
+    src.clear();
 }
+
+template <typename T>
+void PmergeMe<T>::addPair(T &src, T &dest, size_t size) {
+    if (size > src.size())
+        return ;
+    for (size_t i = 0; i < size; i++)
+        dest.push_back(src[i]);
+    for (size_t i = size - 1; i > 0; i--)
+        src.erase(src.begin() + i);
+    src.erase(src.begin());
+}
+
+template <typename T>
+void PmergeMe<T>::insertPair(int newIdx, int idxPair, size_t size) {
+    T tmp;
+
+    for (int i = 0; i < newIdx; i++)
+        addPair(result, tmp, size);
+
+    for (int i = idxPair - size + 1; i <= idxPair; i++)
+        tmp.push_back(pend[i]);
+    for (size_t i = 0; i < size; i++)
+        pend.erase(pend.begin() + idxPair - i);
+
+    put_all(result, tmp);
+    result = tmp;
+}
+
+template <typename T>
+void PmergeMe<T>::print_tab(T tab) {
+    for (typename T::iterator it = tab.begin(); it < tab.end(); it++)
+        std::cout << *it << " ";
+    std::cout << std::endl;
+}
+
+template <typename T>
+uint64_t PmergeMe<T>::get_micro() {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (tv.tv_sec * 1000000 + tv.tv_usec);
+}
+
+template <typename T>
+T &PmergeMe<T>::get_tab() {return tab;}
