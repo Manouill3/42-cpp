@@ -18,6 +18,7 @@ class RPN {
         RPN &operator=(const RPN &obj);
         ~RPN();
 
+        int handle_error(std::string exp);
         void solve(std::string exp);
 
 };

@@ -6,12 +6,25 @@ PmergeMe<T>::PmergeMe() {}
 template <typename T>
 PmergeMe<T>::PmergeMe(int ac, char **av) {
     for (int i = 1; i < ac; i++) {
+        int j = 0;
+        while (av[i][j]) {
+
+            if (!isdigit(av[i][j]))
+                throw std::invalid_argument("Error: negative or multiple number");
+            j++;
+        }
+        std::string tmp = av[i];
+        if (tmp.size() == 0)
+            throw std::invalid_argument("Error: empty argument");
+        
         std::stringstream ss;
-        int val;
+        double val;
 
         ss << av[i];
         ss >> val;
-        tab.push_back(val);
+        if (val > 2147483647 || val < 0)
+            throw std::invalid_argument("Error: negative number or overflow");
+        tab.push_back((int)val);
     }
 
     jacoblist.push_back(0);

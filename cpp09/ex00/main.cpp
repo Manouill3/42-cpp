@@ -1,28 +1,13 @@
 #include "BitcoinExchange.hpp"
 
 int main(int ac, char **av) {
-    if (ac != 3)
-        return 1;
     try {
-        std::cout << "Default Constructor" << std::endl;
-        std::cout << std::endl;
+        if (ac != 2)
+            throw std::invalid_argument("Error: could not open file.");
 
-        BitcoinExchange Bitcoin(av[1]);
-        Bitcoin.printVal(av[2]);
+        BitcoinExchange Bitcoin("data.csv");
+        Bitcoin.printVal(av[1]);
         std::cout << std::endl;
-
-        std::cout << "Copy Constructor" << std::endl;
-        std::cout << std::endl;
-        
-        BitcoinExchange Bitcoin2(Bitcoin);
-        Bitcoin.printVal(av[2]);
-        std::cout << std::endl;
-
-        std::cout << "Assignement Constructor" << std::endl;
-        std::cout << std::endl;
-        
-        BitcoinExchange Bitcoin3 = Bitcoin;
-        Bitcoin.printVal(av[2]);
     }
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;
